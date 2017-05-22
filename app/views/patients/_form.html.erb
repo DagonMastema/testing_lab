@@ -1,0 +1,176 @@
+
+  <%= form_for( @patient, html: { :class => "form-horizontal" }) do |f| %>
+  <div class="section">
+    <div class="row">
+      <div class="col-md-2" style="margin-top: 5px;">
+        <label>
+          Patient Name:
+        </label>
+      </div>
+      <div class="col-md-4">
+          <%= f.text_field :name, :class => "form-control" %>
+          <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+        <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+      </div>
+    </div>
+  </div><br/>
+  <div class="section">
+    <div class="row">
+      <div class="col-md-2">
+        <label>
+          s/o|w/o:
+        </label>
+      </div>
+      <div class="col-md-4">
+          <%#= text_field_tag :patient_name, nil, :class => "form-control" %>
+          <input type="text" class="form-control" >
+          <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4">
+        <%= select_tag "patient[patient_test]", options_for_select(@patient_tests.collect{ |u| u[:name] }), {:class => "form-control",prompt: "Select Test", required: true, id:''} %>
+      </div>
+    </div>
+  </div><br/>
+
+  <div class="section">
+    <div class="row">
+      <div class="col-md-2" style="margin-top: 5px;">
+        <label>
+          Gender:
+        </label>
+      </div>
+
+      <div class="col-md-6">
+        <label>
+           <label style="margin-top: 5px;">Male: </label><input type="radio" name="patient[gender]" class="flat" style="opacity:0" checked="" value="1"/>&nbsp;  <label style="margin-top: 5px;">Female:  </label><input type="radio" style="opacity:0" name="patient[gender]" class="flat" value="2"/>
+         </label>
+      </div>
+    </div>
+  </div><br/>
+
+  <div class="section">
+    <div class="row">
+      <div class="col-md-2" style="margin-top: 5px;">
+        <label>
+          Age:
+        </label>
+      </div>
+      <div class="col-md-4">
+          <%= f.text_field :age, :class => "form-control" %>
+      </div>
+    </div>
+  </div><br/>
+
+  <div class="section">
+    <div class="row">
+      <div class="col-md-2" style="margin-top: 5px;">
+        <label>
+          Phone Num:
+        </label>
+      </div>
+      <div class="col-md-4">
+          <%= f.text_field :mobile_no, :class => "form-control" %>
+            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div><br/>
+
+  <div class="section">
+    <div class="row">
+      <div class="col-md-2" style="margin-top: 5px;">
+        <label>
+          Reffered By:
+        </label>
+      </div>
+      <div class="col-md-4">
+          <%= f.text_field :referred_by, :class => "form-control" %>
+          <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div><br>
+  <div class="section">
+  <div class="row">
+    <div class="col-md-2"></div>
+      <div class="col-md-2">
+      <%= f.submit :class => "form-control btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>
+  <% end %>
+
+
+<!--
+<html>
+<head>
+  <style>
+  abbr
+{
+      border-bottom: 1px dotted #666;
+}
+
+.tooltip
+{
+position:absolute;
+background-color:#eeeefe;
+border: 1px solid #aaaaca;
+font-size: smaller;
+padding:4px;
+width: 160px;
+box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+-webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+  </style>
+</head>
+<body>
+  <script>
+$(document).ready(function() {
+$('abbr').each(function(){
+  $(this).data('title',$(this).attr('title'));
+  $(this).removeAttr('title');
+});
+$('abbr').mouseover(function() {
+  $('abbr').next('.tooltip').remove();
+  $(this).after('<span class="tooltip">' + $(this).data('title') + '</span>');
+  var left = $(this).position().left + $(this).width() + 4;
+  var top = $(this).position().top - 4;
+  $(this).next().css('left',left);
+  $(this).next().css('top',top);
+});
+/**
+ * when abbreviations are clicked trigger their mouseover event then fade the tooltip
+ * (this is friendly to touch interfaces)
+ */
+$('abbr').click(function(){
+
+  $(this).mouseover();
+  // after a slight 2 second fade, fade out the tooltip for 1 second
+  $(this).next().animate({opacity: 0.9},{duration: 0, complete: function(){
+    $(this).fadeOut(20000);
+  }});
+});
+/**
+ * Remove the tooltip on abbreviation mouseout
+ */
+$('abbr').mouseout(function(){
+  $(this).next('.tooltip').remove();
+});
+
+});
+
+  </script>
+    <p>For a tooltip hover or click <abbr title="This text will show up in your tooltip!">here</abbr>.</p>
+    <p>For a tooltip hover or click <abbr title="This text will show up in your tooltip!">here</abbr>.</p>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js'></script>
+    <script type='text/javascript' src='touchHover.js'></script>
+</body>
+</html> -->

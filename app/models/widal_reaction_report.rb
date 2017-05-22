@@ -1,0 +1,2 @@
+class WidalReactionReport < ApplicationRecord
+end

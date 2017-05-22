@@ -1,0 +1,2 @@
+class PatientWidalReactionReport < ApplicationRecord
+end

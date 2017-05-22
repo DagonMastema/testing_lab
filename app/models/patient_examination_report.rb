@@ -1,0 +1,2 @@
+class PatientExaminationReport < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class GravindexTestReport < ApplicationRecord
+end

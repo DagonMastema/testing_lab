@@ -1,0 +1,2 @@
+class MountexReport < ApplicationRecord
+end

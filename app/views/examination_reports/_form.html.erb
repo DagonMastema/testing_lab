@@ -1,0 +1,323 @@
+<div class='admin-form theme-info'>
+
+  <%= form_for( @examination_report, html: { :class => "form-horizontal" }) do |f| %>
+  <% if @examination_report.errors.any? %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <ul>
+      <% @examination_report.errors.full_messages.each do |message| %>
+      <li style="color: white;"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="section">
+    <div class="row">
+      <div class="col-md-1" style="margin-top: 5px;">
+        <label>
+          Name:
+        </label>
+      </div>
+      <div class="col-md-3">
+        <label>
+          <%= text_field_tag :patient_name, nil, :class => "form-control" %>
+          <!-- <input type="text" class="form-control" > -->
+        </label>
+      </div>
+      <div class="col-md-1" style="margin-top: 5px;">
+        Gender:
+      </div>
+      <div class="col-md-2">
+        <label style="margin-top: 5px;">Male</label><input type="radio" name="gender"/>&nbsp;  <label style="margin-top: 5px;">Female  </label><input type="radio" name="gender"/>
+      </div>
+      <div class="col-md-1" style="margin-top: 5px;">
+        Age:
+      </div>
+      <div class="col-md-2">
+          <%= text_field_tag :age, "", :class => "form-control" %>
+        <!-- <select class = "form-control"><option>Select Age</option><select> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="row">
+        <div class="col-md-1" style="margin-top: 5px;">
+          <label>
+            Reffered By:
+          </label>
+        </div>
+        <div class="col-md-3">
+          <label>
+              <%= text_field_tag :reffered_by, nil, :class => "form-control" %>
+          </label>
+        </div>
+        <div class="col-md-3" style="margin-top: 5px;">
+          <label  class="prepend-icon ">
+            <input type="text" class="datetime-field2 gui-input form-control" name="" placeholder="Date">
+            <label class="field-icon"><i class="fa fa-calendar"></i>
+            </label>
+          </label>
+        </div>
+      </div>
+    </div>
+<br/>
+
+
+    <div class="section-divider mt40 mb25" id="spy6">
+      <span style="background-color: #fff;color:maroon;margin-top: -27px;"><h2>Examination Report<h2/></span>
+      </div>
+
+      <div class="panel-body col-xs-12">
+        <div class="section">
+          <div class="row">
+            <div class="col-md-2" style="margin-top: 5px;">
+              <label>
+                Color:
+              </label>
+            </div>
+            <div class="col-md-6">
+              <%= select_tag "colour", options_for_select(@standards.collect{ |u| [u.full_name, u.id] },selected: (@examination_report..id if @unit.standard.present?)), {:class => "form-control",prompt: "Select Color", required: true, id:''} %>
+              <select class = "form-control"><option>select one field</option><select>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="row">
+              <div class="col-md-2" style="margin-top: 5px;">
+                <label>
+                  Appearance:
+                </label>
+              </div>
+              <div class="col-md-6">
+                <select class = "form-control"><option>select one field</option><select>
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="row">
+                <div class="col-md-2" style="margin-top: 5px;">
+                  <label>
+                    Reaction:
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <select class = "form-control"><option>select one field</option><select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section">
+                <div class="row">
+                  <div class="col-md-2" style="margin-top: 5px;">
+                    <label>
+                      Specific Gravity:
+                    </label>
+                  </div>
+                  <div class="col-md-6">
+                    <select class = "form-control"><option>select one field</option><select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="section">
+                  <div class="row">
+                    <div class="col-md-2" style="margin-top: 5px;">
+                      <label>
+                        Phosphate:
+                      </label>
+                    </div>
+                    <div class="col-md-6">
+                        <%= text_field_tag :phosphate, nil, :class => "form-control" %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="section">
+                  <div class="row">
+                    <div class="col-md-2" style="margin-top: 5px;">
+                      <label>
+                        Albumin:
+                      </label>
+                    </div>
+                    <div class="col-md-6">
+                      <select class = "form-control"><option>select one field</option><select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="section">
+                    <div class="row">
+                      <div class="col-md-2" style="margin-top: 5px;">
+                        <label>
+                          Sugar:
+                        </label>
+                      </div>
+                      <div class="col-md-6">
+                        <select class = "form-control"><option>select one field</option><select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="section">
+                      <div class="row">
+                        <div class="col-md-2" style="margin-top: 5px;">
+                          <label>
+                            Ketone Bodies:
+                          </label>
+                        </div>
+                        <div class="col-md-6">
+                          <select class = "form-control"><option>select one field</option><select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="section">
+                        <div class="row">
+                          <div class="col-md-2" style="margin-top: 5px;">
+                            <label>
+                              Bile Salts:
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <select class = "form-control"><option>select one field</option><select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="section">
+                          <div class="row">
+                            <div class="col-md-2" style="margin-top: 5px;">
+                              <label>
+                                Bile Pigments:
+                              </label>
+                            </div>
+                            <div class="col-md-6">
+                              <select class = "form-control"><option>select one field</option><select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="section">
+                            <div class="row">
+                              <div class="col-md-2" style="margin-top: 5px;">
+                                <label>
+                                  Urobilinogen:
+                                </label>
+                              </div>
+                              <div class="col-md-6">
+                                <select class = "form-control"><option>select one field</option><select>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="section">
+                              <div class="row">
+                                <div class="col-md-2" style="margin-top: 5px;">
+                                  <label>
+                                    Bence-Jones Protien:
+                                  </label>
+                                </div>
+                                <div class="col-md-6">
+                                  <select class = "form-control"><option>select one field</option><select>
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+                              <div class="section-divider mt40 mb25" id="spy6">
+                                <span style="background-color: #fff;color:maroon">MICROSCOPIC EXAMINATION</span>
+                              </div>
+
+                              <div class="section">
+                                <div class="row">
+                                  <div class="col-md-2" style="margin-top: 5px;">
+                                    <label>
+                                      Ephithelial cells:
+                                    </label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <select class = "form-control"><option>select one field</option><select>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="section">
+                                  <div class="row">
+                                    <div class="col-md-2" style="margin-top: 5px;">
+                                      <label>
+                                        Pus cells:
+                                      </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <select class = "form-control"><option>select one field</option><select>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="section">
+                                    <div class="row">
+                                      <div class="col-md-2" style="margin-top: 5px;">
+                                        <label>
+                                          RBC's:
+                                        </label>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <select class = "form-control"><option>select one field</option><select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="section">
+                                      <div class="row">
+                                        <div class="col-md-2" style="margin-top: 5px;">
+                                          <label>
+                                            Casts:
+                                          </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <select class = "form-control"><option>select one field</option><select>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+                                    <div class="section">
+                                      <div class="row">
+                                        <div class="col-md-2" style="margin-top: 5px;">
+
+                                        </div>
+                                        <div class="col-md-6" align="center">
+                                          <input type="button" value="SUBMIT" class="btn-primary"/>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    <% end %>
+                                  </div>
+
+
+                                  <% content_for :custom_scripts_for_page do %>
+                                  <script type="text/javascript">
+
+                                  $(".datetime-field2").datetimepicker({
+                                    format: 'DD/MM/YYYY',
+                                    pickTime: false,
+                                    maxDate: '<%= DateTime.now.strftime("%d/%m/%Y") %>'
+                                  });
+
+                                  $('#student_admission').datetimepicker({
+                                    format: 'DD/MM/YYYY',
+                                    pickTime: false
+                                  });
+
+                                  $('#student-dob').datetimepicker({
+                                    format: 'DD/MM/YYYY',
+                                    pickTime: false
+                                  });
+
+                                  </script>
+                                  <% end %>

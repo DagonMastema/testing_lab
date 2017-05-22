@@ -1,0 +1,36 @@
+<div class="x_panel">
+  <div class="clearfix"></div>
+  <div class="x_title"></div>
+  <div class="x_content">
+
+    <p id="notice"><%= notice %></p>
+    <h3 id="" class="page-header">Listing Patients
+      <%#= link_to 'New Patient', new_manage_unit_path, :style => "top: -5px; position: relative;" , :class => "pull-right btn btn-primary btn-sm" %>
+    </h3>
+
+
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Patient Name</th>
+          <th>Test Name</th>
+          <th>status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @patients.each_with_index do |patient, index | %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= patient.try(:name) %></td>
+          <td><%= patient.try(:patient_test) %></td>
+          <td><a href = '<%= URLS[patient.patient_test] %>'>click</a></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>
