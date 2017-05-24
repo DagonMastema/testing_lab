@@ -26,6 +26,10 @@ class UrineExaminationReportsController < ApplicationController
     end
 
     private
+      def set_urine_examination_report
+        @urine_examination_report = params[:id]
+      end
+
       def examination_report_params
         params.require(:examination_report).permit(:colour, :appearance, :reaction, :specific_gravity,
                 :phosphate, :albumin, :sugar, :ketone_bodies, :bile_salts, :bile_pigments, :urobilinogen,

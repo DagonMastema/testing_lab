@@ -63,3 +63,8 @@ gem 'wkhtmltopdf-binary'
 gem 'gentelella-rails'
 
 gem 'pry'
+
+group :test do
+  gem 'rails-perftest'
+  gem 'ruby-prof'
+end

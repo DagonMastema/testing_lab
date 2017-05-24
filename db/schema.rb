@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504103143) do
+ActiveRecord::Schema.define(version: 20170524120751) do
 
   create_table "blood_examination_reports", force: :cascade do |t|
     t.string   "hemoglobin"
@@ -182,26 +182,27 @@ ActiveRecord::Schema.define(version: 20170504103143) do
   end
 
   create_table "urine_examination_reports", force: :cascade do |t|
-    t.text     "colour"
-    t.text     "appearance"
-    t.text     "reaction"
-    t.text     "specific_gravity"
+    t.string   "colour"
+    t.string   "appearance"
+    t.string   "reaction"
+    t.string   "specific_gravity"
     t.string   "phosphate"
-    t.text     "albumin"
-    t.text     "sugar"
-    t.text     "ketone_bodies"
-    t.text     "bile_salts"
-    t.text     "bile_pigments"
-    t.text     "urobilinogen"
-    t.text     "bence_jones_proteins"
-    t.text     "epithelial_cells"
-    t.text     "pus_cells"
-    t.text     "rbcs"
-    t.text     "casts"
-    t.text     "crystals"
-    t.text     "mucus_threads"
+    t.string   "albumin"
+    t.string   "sugar"
+    t.string   "ketone_bodies"
+    t.string   "bile_salts"
+    t.string   "bile_pigments"
+    t.string   "urobilinogen"
+    t.string   "bence_jones_proteins"
+    t.string   "epithelial_cells"
+    t.string   "pus_cells"
+    t.string   "rbcs"
+    t.string   "casts"
+    t.string   "crystals"
+    t.string   "mucus_threads"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "patient_id"
   end
 
   create_table "users", force: :cascade do |t|

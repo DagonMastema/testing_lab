@@ -3,19 +3,19 @@
 <head>
   <title>Testinglab</title>
   <%= csrf_meta_tags %>
-  
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body class="nav-md <%= 'login' if params[:type].present? %>">
+<body class="nav-md <%= 'login' if true %>">
   <div class="container body">
     <div class="main_container">
       <% if user_signed_in? %>
       <%= render partial: 'layouts/left_menu' %>
       <% end %>
       <%= render partial: 'layouts/top_menu' %>
-      <% @user_error_messages =  %>
+      <!-- <%# @user_error_messages =  ""%> -->
       <div class="right_col" role="main">
         <div class="col-md-12">
         <div class ="pull-right">

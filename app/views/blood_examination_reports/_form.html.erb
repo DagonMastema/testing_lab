@@ -17,13 +17,7 @@
   font-size: 20px;
 }
 
-.patient-text-field{
-  border: 0;
-  outline: 0;
-  background: transparent;
-  border-bottom: 1px solid black;
 
-}
 </style>
 <div class=''>
 
@@ -42,57 +36,53 @@
 
   <div class="section">
     <div class="row">
-      <div class="col-md-2" style="margin-top: 15px;">
+      <div class="col-md-1" style="margin-top: 5px;">
         <label>
           Name:
         </label>
       </div>
       <div class="col-md-3">
         <label>
-          <input type="text" value = "<%= @patient.name %>"class="form-control patient-text-field" disabled="none" >
+          <%= text_field_tag :patient_name, nil, :class => "form-control" %>
+          <!-- <input type="text" class="form-control" > -->
         </label>
       </div>
-      <div class="col-md-1" style="margin-top: 15px;">
+      <div class="col-md-1" style="margin-top: 5px;">
         Gender:
       </div>
-      <div class="col-md-3">
-        <input type="text" value = "Male"class="form-control patient-text-field" disabled="disabled" >
+      <div class="col-md-2">
+        <label style="margin-top: 5px;">Male</label><input type="radio" name="gender"/>&nbsp;  <label style="margin-top: 5px;">Female  </label><input type="radio" name="gender"/>
       </div>
-      <div class="col-md-1" style="margin-top: 15px;">
+      <div class="col-md-1" style="margin-top: 5px;">
         Age:
       </div>
-      <div class="col-md-1">
-        <input type="text" value = "<%= @patient.age %>"class="form-control patient-text-field" disabled="disabled" >
-
+      <div class="col-md-2">
+          <%= text_field_tag :age, "", :class => "form-control" %>
         <!-- <select class = "form-control"><option>Select Age</option><select> -->
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <div class="row">
-      <div class="col-md-2" style="margin-top: 15px;">
-        <label>
-          Reffered By:
-        </label>
-      </div>
-      <div class="col-md-3">
-        <label>
-          <input type="text" value = "<%= @patient.referred_by %>"class="form-control patient-text-field" disabled="disabled" >
-        </label>
-      </div>
-
-        <div class="col-md-1" style="margin-top: 15px;">
+    <div class="section">
+      <div class="row">
+        <div class="col-md-1" style="margin-top: 5px;">
           <label>
-            Date:
+            Reffered By:
           </label>
         </div>
-      <div class="col-md-3" >
-          <label><input type="text" value = "11/11/1111"class="form-control patient-text-field" disabled="disabled" ></label>
+        <div class="col-md-3">
+          <label>
+              <%= text_field_tag :reffered_by, nil, :class => "form-control" %>
+          </label>
+        </div>
+        <div class="col-md-3" style="">
+            <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+            <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+        </div>
       </div>
     </div>
-  </div>
-  <br/>
+<br/>
 
 
   <div class="report-line">
@@ -101,13 +91,13 @@
 
   <div class="panel-body col-xs-12">
 
-    <div class="row" style="border:solid">
+    <div class="row">
       <div class="col-md-3">
-        <h4><b3
+        <h4><b>
           TEST RANGE
         </b></h4>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" align="center">
         <h4><b>
           TEST RANGE
         </b></h4>
