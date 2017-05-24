@@ -1,5 +1,5 @@
 <style>
- .report-line {
+.report-line {
   height: 0;
   border-top: 1px solid maroon;
   text-align: center;
@@ -7,7 +7,7 @@
   margin-bottom: 30px;
 
 }
- .report-line span {
+.report-line span {
   display: inline-block;
   position: relative;
   padding: 0 17px;
@@ -16,8 +16,16 @@
   top: -16px;
   font-size: 20px;
 }
+
+.patient-text-field{
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+
+}
 </style>
-<div class='admin-form'>
+<div class=''>
 
   <%= form_for( @blood_examination_report, html: { :class => "form-horizontal" }) do |f| %>
   <% if @blood_examination_report.errors.any? %>
@@ -34,198 +42,297 @@
 
   <div class="section">
     <div class="row">
-      <div class="col-md-1" style="margin-top: 5px;">
+      <div class="col-md-2" style="margin-top: 15px;">
         <label>
           Name:
         </label>
       </div>
       <div class="col-md-3">
         <label>
-          <%= text_field_tag :patient_name, nil, :class => "form-control" %>
-          <!-- <input type="text" class="form-control" > -->
+          <input type="text" value = "<%= @patient.name %>"class="form-control patient-text-field" disabled="none" >
         </label>
       </div>
-      <div class="col-md-1" style="margin-top: 5px;">
+      <div class="col-md-1" style="margin-top: 15px;">
         Gender:
       </div>
-      <div class="col-md-2">
-        <label style="margin-top: 5px;">Male</label><input type="radio" name="gender"/>&nbsp;  <label style="margin-top: 5px;">Female  </label><input type="radio" name="gender"/>
+      <div class="col-md-3">
+        <input type="text" value = "Male"class="form-control patient-text-field" disabled="disabled" >
       </div>
-      <div class="col-md-1" style="margin-top: 5px;">
+      <div class="col-md-1" style="margin-top: 15px;">
         Age:
       </div>
-      <div class="col-md-2">
-          <%= text_field_tag :age, "", :class => "form-control" %>
-        <!-- <select class = "form-control"><option>Select Age</option><select> -->
-        </div>
-      </div>
-    </div>
+      <div class="col-md-1">
+        <input type="text" value = "<%= @patient.age %>"class="form-control patient-text-field" disabled="disabled" >
 
-    <div class="section">
-      <div class="row">
-        <div class="col-md-1" style="margin-top: 5px;">
-          <label>
-            Reffered By:
-          </label>
-        </div>
-        <div class="col-md-3">
-          <label>
-              <%= text_field_tag :reffered_by, nil, :class => "form-control" %>
-          </label>
-        </div>
-        <div class="col-md-3" style="margin-top: 5px;">
-          <label  class="prepend-icon ">
-            <input type="text" class="datetime-field2 gui-input form-control" name="" placeholder="Date">
-            <label class="field-icon"><i class="fa fa-calendar"></i>
-            </label>
-          </label>
-        </div>
+        <!-- <select class = "form-control"><option>Select Age</option><select> -->
       </div>
     </div>
+  </div>
+
+  <div class="section">
+    <div class="row">
+      <div class="col-md-2" style="margin-top: 15px;">
+        <label>
+          Reffered By:
+        </label>
+      </div>
+      <div class="col-md-3">
+        <label>
+          <input type="text" value = "<%= @patient.referred_by %>"class="form-control patient-text-field" disabled="disabled" >
+        </label>
+      </div>
+
+        <div class="col-md-1" style="margin-top: 15px;">
+          <label>
+            Date:
+          </label>
+        </div>
+      <div class="col-md-3" >
+          <label><input type="text" value = "11/11/1111"class="form-control patient-text-field" disabled="disabled" ></label>
+      </div>
+    </div>
+  </div>
   <br/>
 
 
   <div class="report-line">
     <span style="background-color: #fff;">Blood Examination Report</span>
+  </div>
+
+  <div class="panel-body col-xs-12">
+
+    <div class="row" style="border:solid">
+      <div class="col-md-3">
+        <h4><b3
+          TEST RANGE
+        </b></h4>
+      </div>
+      <div class="col-md-4">
+        <h4><b>
+          TEST RANGE
+        </b></h4>
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-4">
+        <h4><b>
+          TEST RANGE
+        </b></h4>
+      </div>
+    </div><br/>
+
+    <div class="section">
+    <div class="row">
+      <div class="col-md-3">
+        <b>
+          Hemaglobin:
+        </b>
+      </div>
+      <div class="col-md-4">
+        <%= text_field_tag :hemaglobin ,nil,class:'form-control'%>
+      </div>
+      <div class="col-md-1">
+        <label>gms(**%)</label>
+      </div>
+      <div class="col-md-4">
+        <label>Male:14-18Gms %</label><br/>
+        <label>Female:11.5-16Gms %</label><br/>
+        <label>Child:12-14Gms %</label>
+      </div>
     </div>
-    <!-- <span ><h2 style="margin-top:-10px;"><h2/></span> -->
-    <!-- <hr style="background-color:red;color:maroon;margin-top: -20px;"> -->
+  </div><br/>
 
-    <div class="panel-body col-xs-12">
-        <!-- <div class="row">
-          <div class="col-md-2" style="margin-top: 5px;">
-            <label>
-              Color:
-            </label>
-          </div>
-          <div class="col-md-6">
-            <!-- <select class = "form-control"><option>select one field</option><select> -->
-            <!-- </div>
-          </div> -->
-          <!-- <table width="100%">
-            <tr style="border:solid;">
-              <th style="width:15%">
-                <h4><b>TEST RANGE</b></h4>
-              </th>
-              <th style="width:35%;text-align:center;">
-                <h4><b>PATIENT VALUE</b></h4>
-              </th>
-              <th style="width:10%">
-              </th>
-              <th style="width:40%">
-                <h4><b>NORMAL</b></h4>
-              </th>
-            </tr>
-            <tr style="border:none;">
-              <td>
-                <b>Hemaglobin:</b>
-              </td>
-              <td>
-                <%= text_field_tag :hemaglobin ,nil,class:'form-control'%>
-              </td>
-              <td><label>gms(**%)</label></td>
-              <td>
-                <label>Male:14-18Gms %</label><br/>
-                <label>Female:11.5-16Gms %</label><br/>
-                <label>Child:12-14Gms %</label>
-              </td>
-            </tr>
+  <div class="section">
+  <div class="row">
+    <div class="col-md-3">
+      <b>Total R.B.C count:</b>
+    </div>
+    <div class="col-md-4">
+      <select class="form-control"></select>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-4">
+      <label>Male:4.5-6.5 Mil/Cumm </label><br/>
+      <label>Female:4.0-5.5 Mil/Cumm</label>
+    </div>
+  </div>
+</div><br/>
 
-            <tr>
-              <td>
-                <b>Total R.B.C count:</b>
-              </td>
-              <td>
-                <select class="form-control"></select>
-              </td>
-              <td></td>
-              <td>
-                <label>Male:4.5-6.5 Mil/Cumm </label><br/>
-                <label>Female:4.0-5.5 Mil/Cumm</label>
-              </td>
-            </tr>
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>Total W.B.C count:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>5,000-11,000Cells/Cumm</label>
+  </div>
+</div>
+</div><br/>
 
-            <tr>
-              <td>
-                <b>Total W.B.C count:</b>
-              </td>
-              <td>
-                <select class="form-control"></select>
-              </td>
-              <td></td>
-              <td>
-                <label>5,000-11,000Cells/Cumm</label><br/>
-              </td>
-            </tr>
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>Total A.E count:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>40-440Cells/Cumm</label>
+  </div>
+</div>
+</div><br/>
 
-            <tr>
-              <div class="">
-              <td>
-                <b>Total A.E count:</b>
-              </td>
-              <td>
-                <select class="form-control"></select>
-              </td>
-              <td></td>
-              <td>
-                <label>40-440Cells/Cumm</label>
-              </td>
-            </div>
-            </tr>
-            <tr>
-              <td>
-                <b>Platelete count:</b>
-              </td>
-              <td>
-                <select class="form-control"></select>
-              </td>
-              <td></td>
-              <td>
-                <label>1.5-4.0 LakhsCells/Cumm</label>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="4">
-              <div class="report-line" id="spy6" align="center">
-                <span style="background-color: #fff; font-size:15px">Examination Report</span>
-              </div>
-            </td>
-            </tr>
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>Platelete count:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>1.5-4.0 LakhsCells/Cumm</label>
+  </div>
+</div>
+</div><br/>
 
-            <tr>
-              <div class="">
-              <td>
-                <b>neutrophils:</b>
-              </td>
-              <td>
-                <select class="form-control"></select>
-              </td>
-              <td></td>
-              <td>
-                <label>Adults : 40-75 %</label>
-              </td>
-            </div>
-            </tr>
-            <tr>
+<div class="row">
+  <div class="col-md-12" style="margin-top: 5px;">
+    <div class="report-line" id="spy6" align="center">
+      <span style="background-color: #fff; font-size:15px">Examination Report</span>
+    </div>
+  </div>
+</div>
 
-          </table> -->
-          <div class="row" style="border:solid">
-            <div class="col-md-4" style="margin-top: 5px;">
-              <h4><b>
-                TEST RANGE
-              </b></h4>
-            </div>
-            <div class="col-md-4">
-              <h4><b>
-                TEST RANGE
-              </b></h4>
-              </div>
-              <div class="col-md-4">
-                <h4><b>
-                  TEST RANGE
-                </b></h4>
-              </div>
-            </div>
-      </div><br/>
-      <% end %>
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>Neutrophils:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>Adults : 40-75 %</label>
+  </div>
+</div>
+</div><br/>
+
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>Lymphocytes:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>Adults : 20-40 %</label><br/>
+    <label>Childrens : 33-40 %</label>
+  </div>
+</div>
+</div><br/>
+
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>Esoniphils:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>2-8 %</label>
+  </div>
+</div>
+</div><br/>
+
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>Monocytes:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>0-6 %</label>
+  </div>
+</div>
+</div><br/>
+
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>Basophils:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>0-1 %</label>
+  </div>
+</div>
+</div><br/>
+
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+    <b>E.S.R:</b>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control"></select>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <label>Male :0-15 mm/hr</label><br/>
+    <label>Female :0-20 mm/hr</label>
+  </div>
+</div>
+</div><br/>
+
+
+<div class="section">
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-4" align="center">
+    <%= f.submit class: "btn btn-success"%>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+
+  </div>
+</div>
+</div>
+
+
+
+</div>
+
+<% end %>
 </div>

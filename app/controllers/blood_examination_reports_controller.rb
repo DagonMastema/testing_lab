@@ -5,6 +5,7 @@ class BloodExaminationReportsController < ApplicationController
   end
 
   def new
+    @patient = Patient.find(params[:id])
     @blood_examination_report = BloodExaminationReport.new
   end
 

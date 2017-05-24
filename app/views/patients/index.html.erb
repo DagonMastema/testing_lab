@@ -25,7 +25,7 @@
           <td><%= index + 1 %></td>
           <td><%= patient.try(:name) %></td>
           <td><%= patient.try(:patient_test) %></td>
-          <td><a href = '<%= URLS[patient.patient_test] %>'>click</a></td>
+          <td><a href = '<%= URLS[patient.patient_test] %>/?id=<%= patient.id %>'>click</a></td>
         </tr>
         <% end %>
       </tbody>
